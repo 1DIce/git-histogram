@@ -27,6 +27,10 @@ const { options } = await new Command()
     "-a, --ascending",
     "order data in ascending order",
   )
+  .option(
+    "-t, --top <value:number>",
+    "Top most number of entries to display",
+  )
   .parse(Deno.args);
 
 const mergeBaseSource = options.mergeBase;
@@ -101,4 +105,5 @@ const barChartData = Object.entries(histogram).map(([name, amount]) => ({
 
 barChart(barChartData, {
   order: options.ascending ? "ascending" : "descending",
+  maxEntries: options.top,
 });
