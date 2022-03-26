@@ -23,6 +23,10 @@ const { options } = await new Command()
     "-g, --glob <glob-pattern>",
     "filter the file names with a glob pattern",
   )
+  .option(
+    "-a, --ascending",
+    "order data in ascending order",
+  )
   .parse(Deno.args);
 
 const mergeBaseSource = options.mergeBase;
@@ -95,4 +99,6 @@ const barChartData = Object.entries(histogram).map(([name, amount]) => ({
   amount,
 }));
 
-barChart(barChartData);
+barChart(barChartData, {
+  order: options.ascending ? "ascending" : "descending",
+});
