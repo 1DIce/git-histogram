@@ -7,20 +7,20 @@ const { options } = await new Command()
   .name("git-histogram")
   .description("Shows the frequenzy of file changes in a histogram")
   .option(
-    "-r, --ref <ref>",
+    "-r, --ref <ref:string>",
     "use this git ref to create a histogram for files that were change in the 'git diff HEAD <ref>' " +
       " this flag is ignored if --merge-base is also used",
   )
   .option(
-    "-m, --merge-base <branch>",
+    "-m, --merge-base <branch:string>",
     "create histogram from diff against the merge-base from branch",
   )
   .option(
-    "-f, --filter <regex>",
+    "-f, --filter <regex:string>",
     "filter the file names with a regular expersion",
   )
   .option(
-    "-g, --glob <glob-pattern>",
+    "-g, --glob <glob-pattern:string>",
     "filter the file names with a glob pattern",
   )
   .option(
